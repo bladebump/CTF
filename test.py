@@ -1,11 +1,36 @@
-import requests
-import re
+from pycipher import Autokey
+import string
+from random import choice
+from pyDes import *
+import codecs
+
+def fib(n):
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+
+
+def GenPassword(length=8, chars=string.ascii_letters):
+    return ''.join([choice(chars) for i in range(length)])
+
+
+Des_Key = GenPassword().upper()
+
+def DesEncrypt(str):
+    k = des(Des_Key, ECB, pad=None, padmode=PAD_PKCS5)
+    EncryptStr = k.decrypt(str)
+    return EncryptStr.encode('hex')
+
 
 if __name__ == "__main__":
-    s = [0xfb,0x9E, 0x67, 0x12, 0x4E, 0x9D, 0x98, 0xAB, 0, 6, 0x46, 0x8A, 0xF4, 0xB4, 6, 0xB, 0x43, 0xDC, 0xD9, 0xA4, 0x6C,
-         0x31, 0x74, 0x9C, 0xD2, 0xA0]
-    key = [0xab, 0xdd, 0x33, 0x54, 0x35, 0xef]
-    ans = []
-    for i in range(26):
-        ans.append(chr(s[i] ^ key[i % 6]))
-    print(''.join(ans))
+    f1 = open('123.txt', 'wb')
+    f2 = open('enc.txt', 'rb')
+    content = f2.readlines()
+    res = content
+    for i in range(len(res)):
+        f1.write(DesEncrypt(res[i].decode('hex')) + '\n')
+    f1.close()
+    f2.close()
