@@ -4,6 +4,7 @@ from random import choice
 from pyDes import *
 import codecs
 
+
 def fib(n):
     if n == 0:
         return 1
@@ -13,24 +14,17 @@ def fib(n):
         return fib(n - 1) + fib(n - 2)
 
 
-def GenPassword(length=8, chars=string.ascii_letters):
-    return ''.join([choice(chars) for i in range(length)])
-
-
-Des_Key = GenPassword().upper()
-
-def DesEncrypt(str):
-    k = des(Des_Key, ECB, pad=None, padmode=PAD_PKCS5)
-    EncryptStr = k.decrypt(str)
-    return EncryptStr.encode('hex')
-
-
 if __name__ == "__main__":
-    f1 = open('123.txt', 'wb')
-    f2 = open('enc.txt', 'rb')
-    content = f2.readlines()
-    res = content
-    for i in range(len(res)):
-        f1.write(DesEncrypt(res[i].decode('hex')) + '\n')
-    f1.close()
-    f2.close()
+    k = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
+    print(k)
+    a = k.copy()
+    a.reverse()
+    for i in range(len(k) - 1):
+        a[i] = a[i] + a[-1]
+    print(a)
+    print(k)
+    for i in range(len(k)-1):
+        k[i] = k[i] - k[-1]
+    k.reverse()
+    print(k)
+
