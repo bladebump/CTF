@@ -10,4 +10,5 @@ def decode(s: str):
 
 
 if __name__ == "__main__":
+    print(len('D9cS9N9iHjMLTdA8YSMRMp'))
     print(decode('D9cS9N9iHjMLTdA8YSMRMp'))

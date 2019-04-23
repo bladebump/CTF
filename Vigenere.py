@@ -24,4 +24,4 @@ if __name__ == '__main__':
     print(getAllChar(ciphertext, ans1))
     a = autokey.Autokey(key)
     ans2 = a.decipher(ciphertext).lower()
-    print(getAllChar(ciphertext,ans2))
+    print(getAllChar(ciphertext, ans2))

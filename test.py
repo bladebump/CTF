@@ -15,16 +15,14 @@ def fib(n):
 
 
 if __name__ == "__main__":
-    k = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
-    print(k)
-    a = k.copy()
-    a.reverse()
-    for i in range(len(k) - 1):
-        a[i] = a[i] + a[-1]
-    print(a)
-    print(k)
-    for i in range(len(k)-1):
-        k[i] = k[i] - k[-1]
-    k.reverse()
-    print(k)
+    s = '$acbedgfihmlonpsrtyx_'
+    print(s[17]+s[8]+s[10]+s[4])
+    print(s[16]+s[1]+s[13]+s[5]+s[12]+s[10]+s[20]+s[3]+s[18]+s[17]+s[4]+s[15])
+    print(s[14]+s[9]+s[14]+s[20]+s[15]+s[1]+s[14]+s[8]+s[20]+s[13]+s[1]+s[10]+s[4])
+    print(s[6]+s[4]+s[17]+s[20]+s[11]+s[12]+s[1]+s[5]+s[4]+s[5]+s[20]+s[4]+s[19]+s[17]+s[4]+s[13]+s[15]+s[8]+s[12]+s[13]+s[15])
+    print(s[2]+s[9]+s[16])
+    print(s[8]+s[13]+s[20]+s[1]+s[16]+s[16]+s[1]+s[18])
+    print(s[12]+s[16]+s[5])
+    print(s[15]+s[17]+s[16]+s[11]+s[4]+s[13])
+    print(s[7]+s[8]+s[11]+s[4]+s[20]+s[6]+s[4]+s[17]+s[20]+s[2]+s[12]+s[13]+s[17]+s[4]+s[13]+s[17]+s[15])
 
